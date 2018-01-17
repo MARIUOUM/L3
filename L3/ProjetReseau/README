@@ -1,0 +1,25 @@
+PROJET PR6 - BENHARKAT Mohamed, ZERZERI Nabil, FEKIH Meriem
+
+1. Compiler tous les .java :
+    > javac *.java
+    
+2. Lancer en MODE NORMAL un serveur en local et sur le port 3539
+    > java Server
+    
+3. Lancer en MODE NORMAL un client
+    > java Client
+    
+    
+4. Lancer en MODE NORMAL un serveur avec le choix de l'adresseIP et du portTCP d'écoute
+    > java Server [adresseIP] [portTCP]
+    
+
+5. Pour lancer le client ou le serveur en MODE DEBUG, il faut ajouter comme dernière option le mode du debug:
+    ex:
+        > java Server [optionDebug]
+        > java Server [adresseIP] [portTCP] [optionDebug]
+        > java Client [optionDebug]
+        
+6. Les options du mode Debug sont les suivantes: "1" ou "2":
+    1:  Affiche les messages de DEBUG
+    2:  Affiche les messages de DEBUG et les messages de communications Client-Server

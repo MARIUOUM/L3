@@ -1,0 +1,54 @@
+pr\RecrutementBundle\Entity\Candidature:
+    type: entity
+    table: null
+    repositoryClass: pr\RecrutementBundle\Repository\CandidatureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        candOffreid:
+            type: integer
+            column: cand_offreid
+        candNom:
+            type: string
+            length: 255
+            column: cand_nom
+        candPrenom:
+            type: string
+            length: 255
+            column: cand_prenom
+        candDatenaissance:
+            type: date
+            column: cand_datenaissance
+        candDiplome:
+            type: string
+            length: 255
+            column: cand_diplome
+        candUniversite:
+            type: string
+            length: 255
+            column: cand_universite
+        candAnneObtentionDiplome:
+            type: integer
+            column: cand_AnneObtentionDiplome
+        candExperiencemois:
+            type: integer
+            column: cand_experiencemois
+        candLettremotivation:
+            type: text
+            column: cand_lettremotivation
+        candDatedeposition:
+            type: datetime
+            column: cand_datedeposition
+        candLiencv:
+            type: string
+            length: 255
+            column: cand_liencv
+        candEtat:
+            type: string
+            length: 255
+            column: cand_etat
+    lifecycleCallbacks: {  }

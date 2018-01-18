@@ -1,0 +1,68 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Acceuil</title>
+{% endblock%}
+
+
+{% block body %}
+
+<body style="padding:25px;">
+
+{% for ab in offres %}
+
+
+
+<br>
+<h2>
+{{ ab.offreTitre }}
+</h2>
+
+<u>Description du poste </u><br>
+{{ ab.offreDescription }}
+
+<br>
+<br>
+<br>
+<u>Exigence d'emploi </u><br>
+{{ ab.offreExigence }}
+<br><br><br>
+
+<u>Secteur d'activité </u><br>
+{{ ab.offreSecteur }}
+<br><br><br>
+
+<u>Lieu </u><br>
+{{ ab.offreLieu }}
+<br><br><br>
+
+<u>Date Expiration </u><br>
+ {{ ab.offreDatefermeture | date }}
+
+<br><br><br>
+
+<form id="formid" method="post" action="{{asset('/app_dev.php/offre/deposer')}}">
+
+<input type="text" name="idoffre" value= "{{ ab.id }}" style="display:none;">
+<input type="submit" name="go" value="Postuler" class="btn">
+</form>
+</body>
+
+
+{% endfor %}
+{% endblock%}
+
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+        
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}

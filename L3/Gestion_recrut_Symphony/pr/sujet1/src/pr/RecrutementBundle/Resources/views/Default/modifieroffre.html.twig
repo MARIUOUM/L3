@@ -1,0 +1,120 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Modifier une offre</title>
+{% endblock%}
+
+
+{% block body %}
+<body style="padding:20px;">
+
+<center>
+
+<h3>Modifier une offre </h3>
+</center>
+<div id="container">
+{% for ab in offres %}
+
+<form action="{{asset('/app_dev.php/admin/modifieroffre/insertmodifieroffre')}}" method="post" name="formcc" enctype="multipart/form-data" >
+
+<input type="text" value ="{{ab.id}}" style="display:none;" name="idoffre">
+						
+						
+					
+						<div class="form-group">
+	                    		<label for="contact-name">Titre du poste</label>
+	                        <input type="text" name="titre" placeholder="Titre.." value="{{ ab.offreTitre }}" minlength="3" required class="form-control">
+	                        </div>
+
+
+	                  <div class="form-group">
+	                        	<label>Description</label>
+	                        	<textarea name="description" placeholder="Description.."  minlength="3" class="form-control">{{ ab.offreDescription }}</textarea>
+	                       </div>
+
+
+	                              <div class="form-group">
+	                        	
+	                        	<label>Exigence d'emploi</label>
+	                        	
+	                        	<textarea name="exigence" placeholder="Exigence d'emploi.." class="form-control" minlength="3">{{ ab.offreExigence }}</textarea>
+	                       </div>
+
+
+								
+								<div class="form-group">
+	                    		<label for="contact-name">Secteur</label>
+	                        	<input type="text" name="secteur" placeholder="secteur.." value="{{ ab.offresecteur }}" minlength="3" required class="form-control">
+	                        </div>
+
+
+	                        			
+								<div class="form-group">
+	                    		<label for="contact-name">Lieu</label>
+	                        	<input type="text" name="lieu" placeholder="Lieu.."  minlength="3" required value="{{ ab.offreLieu }}" class="form-control">
+	                        </div>
+
+	                        <div class="form-group">
+	                    		<label> Date Expiration</label><br>
+	                        	<input type="date" name="datefermeture" style="width=105% ; height: 34px;" class="form-control"
+	                        	value="{{ab.offreDatefermeture | date ('Y-m-d')}}"  >
+
+	                        </div>
+
+
+	                          <div class="form-group">
+	                    		<label> Gestionnaire d'offre</label><br>
+	                        	
+
+							<SELECT name="gestionnaire" size="1" class="form-control">	
+
+							{% for useroffre in usersoffre %}
+							<OPTION value="{{useroffre.id}}">{{useroffre.username}} </OPTION>
+
+
+							{% endfor %}	
+
+								</SELECT>
+								{% for useroffre in usersoffre %}
+{{useroffre.username}}
+
+{% endfor %}
+	                        	
+	                        </div>
+
+
+
+							
+							
+							<br/><br/><br/>
+						<div class="portfolio-box-containercd">
+			                	
+			                	<div class="portfolio-box-text">
+
+						
+						</div>
+						</div>
+						<br><br>
+						
+						 <button type="submit" class="btn" name="modifieroffre">Mettre à jour</button>
+						 </form>
+						 {% endfor %}
+						 </div>
+						      </body>
+						      {% endblock%}
+
+
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+        
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}

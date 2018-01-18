@@ -1,0 +1,18 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Modifier offre</title>
+{% endblock%}
+
+
+{% block body %}
+
+<h4>Offre mis à jour avec sucèes..</h4>
+<script>
+function redir(){
+self.location.href="{{asset('/app_dev.php/admin')}}"
+
+}
+setTimeout(redir,2000)
+ 
+ </script>
+ {% endblock%}

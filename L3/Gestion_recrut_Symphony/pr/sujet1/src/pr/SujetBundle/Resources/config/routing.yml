@@ -1,0 +1,3 @@
+s_homepage:
+    path:     /
+    defaults: { _controller: SBundle:Default:index }

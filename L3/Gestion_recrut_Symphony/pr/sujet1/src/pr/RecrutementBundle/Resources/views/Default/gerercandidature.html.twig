@@ -1,0 +1,145 @@
+
+
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Gérer les Candidatures</title>
+{% endblock%}
+{% block body %}
+
+<body style="padding:10px;">
+<div class="container">
+<center>
+<h3> Gérer les candidats </h3>
+
+</center>
+<center>
+<table class="table" >
+<th>
+<center>
+Nom et Prénom
+</th>
+
+
+<th>
+<center>
+Diplome
+</th>
+
+
+<th>
+<center>
+Université
+</th>
+
+<th>
+<center>
+Date Naissance
+</th>
+
+<th>
+<center>
+Expérience Professionnel (Mois)
+</th>
+
+
+<th>
+<center>
+CV
+</th>
+
+<th>
+<center>
+Etat candidature
+</th>
+
+<th>
+<center>
+Mise à jour
+</th>
+
+
+{% for ab in offres %}
+
+
+<tr>
+<td>
+{{ab.candNom}} {{ab.candprenom}}
+</td>
+
+
+<td>
+{{ab.candDiplome}}
+</td>
+
+
+
+<td>
+{{ab.candUniversite}}
+</td>
+
+
+<td>
+{{ab.candDatenaissance | date ('d m Y')}}
+</td>
+
+
+<td>
+{{ab.candExperiencemois}}
+</td>
+
+
+<td>
+
+<a href="/uploads/{{ ab.candLiencv }}" > {{ ab.candLiencv }} </a>
+</td>
+
+
+<td>
+<i>
+	{{ab.candEtat}}
+</i>
+</td>
+
+
+<td>
+
+<form id="formid" method="post" action="{{asset('/app_dev.php/gestionnaire/gerercandidature')}}">
+<SELECT name="etatcandidature" size="1">
+<OPTION value="en attente">en attente </OPTION>
+<OPTION value="entretien">entretien </OPTION>
+<OPTION value="accepté" >accepté</OPTION>
+<OPTION value="refusé" >refusé</OPTION>
+</select>
+<input type="text" value="{{ab.id}}" style="display:none;" name="idcandidature">
+<input type="submit" value="Mettre à jour" name="miseajour" class="btn sample btn-xs btn-sample" >
+</form>
+</td>
+
+
+
+</tr>
+<br>
+</form>
+
+{% endfor %}
+
+</table>
+</center>
+{% endblock%}
+
+
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}

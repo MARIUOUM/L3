@@ -1,0 +1,36 @@
+{% block title %}
+<title> Acceuil</title>
+{% endblock%}
+
+
+{% block body %}
+
+<body style="padding:25px;">
+
+{% for ab in contact%}
+
+
+
+<br>
+<u>
+{{ ab.nom }}
+</u>
+
+
+{{ ab.prenom }}
+{{ ab.mail }}
+{{ ab.telephone}}
+{{ ab.adresse}}
+
+<br>
+<br>
+<br>
+
+<br><br><br>
+
+
+</body>
+
+
+{% endfor %}
+{% endblock%}

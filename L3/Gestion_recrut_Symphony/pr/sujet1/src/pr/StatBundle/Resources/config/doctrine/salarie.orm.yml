@@ -1,0 +1,35 @@
+pr\StatBundle\Entity\salarie:
+    type: entity
+    table: null
+    repositoryClass: pr\StatBundle\Repository\salarieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        dateNaissance:
+            type: date
+        sexe:
+            type: string
+            length: 255
+        dateEntre:
+            type: date
+        typeContrat:
+            type: string
+            length: 255
+        dureeContrat:
+            type: integer
+            column: DureeContrat
+        salaire:
+            type: integer
+        superieurHierarchique:
+            type: integer
+    lifecycleCallbacks: {  }

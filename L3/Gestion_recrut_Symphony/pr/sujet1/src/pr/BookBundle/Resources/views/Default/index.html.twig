@@ -1,0 +1,62 @@
+
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title>Annuaire</title>
+{% endblock%}
+
+
+{% block body %}
+<body style="padding:20px">
+  <div class="container">
+
+  <form id="formid5" method="post" action="{{asset('/book')}}">
+<label> Recherche d'un contact</label>
+<br>
+<input type="text" name="recherche" id="text_recherche_id" minlength="1" required>
+
+<input type="submit" value="Recherche" name="rechercherbtn" class="btn" >
+</form>
+
+<br>
+
+{% for ab in contact %}
+<form id="form{{ ab.id }}" method="POST" action="{{asset('/book/contact')}}" name="forms{{ ab.id }}">
+
+<a  href="#" onclick="document.forms['form{{ ab.id }}'].submit(); return false;" name="submit1">  {{ ab.nom }}</a><br>
+
+<input type="text" name="idcontact" value= "{{ ab.id }}" style="display:none;">
+<br>
+
+</form>
+
+{% endfor %}
+
+<table class="table">
+   <h2 class="page-header">Annuaire</h2>
+   <thead> <tr><center>
+     <th>#</th>
+     <th><center>First Name</center></th>
+      <th><center>Last Name</center></th>
+      <th><center>mail</center></th>
+      <th><center>Tel</center></th>
+      <th><center>adresse</center></th>
+         <th></th>
+     </tr> </thead>
+   <tbody>
+     {% for ab in contact %}
+      <tr>
+        <th scope="row">{{ab.id}}</th>
+        <td><center>{{ab.nom}}</center></td>
+        <td><center>{{ab.prenom}}</center></td>
+        <td><center>{{ab.mail}}</center></td>
+        <td><center>{{ab.telephone}}</center></td>
+        <td><center>{{ab.adresse}}</center></td>
+
+        </td>
+
+      </tr>
+{% endfor %}
+           </tbody>
+         </table>
+
+{% endblock%}

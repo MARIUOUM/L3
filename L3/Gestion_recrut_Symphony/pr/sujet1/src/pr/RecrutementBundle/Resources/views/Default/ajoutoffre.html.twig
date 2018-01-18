@@ -1,0 +1,108 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Ajouter offre</title>
+{% endblock%}
+
+
+{% block body %}
+<body style="padding:20px;">
+
+<center>
+
+<h3>Ajouter une offre </h3>
+</center>
+<div id="container">
+<form action="{{asset('/app_dev.php/admin/ajoutoffre/confirmeajoutoffre')}}" method="post" name="formcc" enctype="multipart/form-data" >
+					
+						
+					
+						<div class="form-group">
+	                    		<label for="contact-name">Titre du poste</label>
+	                        	<input type="text" name="titre" placeholder="Titre.."  minlength="3" required class="form-control" >
+	                        </div>
+
+
+	                  <div class="form-group">
+	                        	<label>Description</label>
+	                        	<textarea name="description" placeholder="Description.."  minlength="3" class="form-control"></textarea>
+	                       </div>
+
+
+	                              <div class="form-group">
+	                        	
+	                        	<label>Exigence d'emploi</label>
+	                        	
+	                        	<textarea name="exigence" placeholder="Exigence d'emploi.." minlength="3" class="form-control"></textarea>
+	                       </div>
+
+
+								
+								<div class="form-group">
+	                    		<label for="contact-name">Secteur</label>
+	                        	<input type="text" name="secteur" placeholder="secteur.."  minlength="3" required class="form-control">
+	                        </div>
+
+
+	                        			
+								<div class="form-group">
+	                    		<label for="contact-name">Lieu</label>
+	                        	<input type="text" name="lieu" placeholder="Lieu.."  minlength="3" required class="form-control">
+	                        </div>
+
+	                        <div class="form-group">
+	                    		<label> Date Expiration</label><br>
+	                        	<input type="date" name="datefermeture" style="width=105% ; height: 34px;" class="form-control">
+	                        </div>
+
+
+	                          <div class="form-group">
+	                    		<label> Gestionnaire d'offre</label><br>
+	                        	
+								<SELECT name="gestionnaire" size="1" class="form-control">
+
+								{% for ab in offres %}
+						
+				
+								<OPTION value="{{ ab.id }}">{{ ab.username }} </OPTION>
+							
+								
+								{% endfor %}
+
+								</SELECT>
+	                        
+	                        </div>
+
+
+
+							<br/><br/><br/>
+						<div class="portfolio-box-containercd">
+			                	
+			                	<div class="portfolio-box-text">
+
+						
+						</div>
+						</div>
+								
+						 <button type="submit" class="btn" name="ajouteroffre">Ajouter</button>
+				
+						 </form>
+						  </div>
+						      </body>
+						      {% endblock%}
+
+						      
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+        
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}

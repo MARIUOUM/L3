@@ -1,0 +1,51 @@
+pr_recrutement_homepage:
+    path:     /
+    defaults: { _controller: prRecrutementBundle:Default:index }
+
+pr_recrutement_offre:
+    path:     /offre
+    defaults: { _controller: prRecrutementBundle:Default:offre }
+
+
+pr_recrutement_deposer:
+    path:     offre/deposer
+    defaults: { _controller: prRecrutementBundle:Default:deposer }
+
+
+pr_recrutement_insertoffre:
+    path:     offre/deposer/insertoffre
+    defaults: { _controller: prRecrutementBundle:Default:deposer }
+
+pr_recrutement_admin:
+    path:     /admin
+    defaults: { _controller: prRecrutementBundle:Default:admin }
+
+pr_recrutement_ajoutoffre:
+    path:     /admin/ajoutoffre
+    defaults: { _controller: prRecrutementBundle:Default:ajoutoffre }
+
+pr_recrutement_confirmeoffre:
+    path:     /admin/ajoutoffre/confirmeajoutoffre
+    defaults: { _controller: prRecrutementBundle:Default:confirmeajoutoffre }
+
+pr_recrutement_modifieroffre:
+    path:     /admin/modifieroffre
+    defaults: { _controller: prRecrutementBundle:Default:modifieroffre }
+
+pr_recrutement_gestionnaire:
+    path:     /gestionnaire
+    defaults: { _controller: prRecrutementBundle:Default:gestionnaire }
+
+pr_recrutement_gerercandidature:
+    path:     /gestionnaire/gerercandidature
+    defaults: { _controller: prRecrutementBundle:Default:gerercandidature }
+
+pr_recrutement_insertmodifieroffre:
+    path:     /admin/modifieroffre/insertmodifieroffre
+    defaults: { _controller: prRecrutementBundle:Default:insertmodifieroffre }
+
+
+pr_recrutement_uploads:
+
+    path:     /uploads
+    defaults: { _controller: prRecrutementBundle:Default:deposer }

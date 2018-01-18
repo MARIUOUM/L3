@@ -1,0 +1,47 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Modifier une contact</title>
+{% endblock%}
+
+
+{% block body %}
+<body style="padding:20px;">
+
+<center>
+
+<h3>Modifier une contact </h3>
+</center>
+<div id="container">
+{% for ab in contact %}
+
+<form action="{{asset('/app_dev.php/admin/modifieroffre/insertmodifiercontact')}}" method="post" name="formcc" enctype="multipart/form-data" >
+
+<input type="text" value ="{{ab.id}}" style="display:none;" name="idoffre">
+
+
+
+						<div class="form-group">
+	                    		<label for="contact-name">Nom</label>
+	                        <input type="text" name="titre" placeholder="Titre.." value="{{ ab.nom }}" minlength="3" required class="form-control">
+	                        </div>
+
+
+	                  <div class="form-group">
+	                        	<label>Description</label>
+	                        	<textarea name="description" placeholder="Description.."  minlength="3" class="form-control">{{ ab.prenom }}</textarea>
+	                       </div>
+
+
+
+
+						<br><br>
+
+						 <button type="submit" class="btn" name="modifieroffre">Mettre à jour</button>
+						 </form>
+						 {% endfor %}
+						 </div>
+						      </body>
+						      {% endblock%}
+
+
+  

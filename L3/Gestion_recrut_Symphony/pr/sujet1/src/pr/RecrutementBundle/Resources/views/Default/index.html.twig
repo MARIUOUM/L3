@@ -1,0 +1,38 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Acceuil</title>
+{% endblock%}
+
+
+{% block body %}
+<body style="padding:20px">
+<center>
+
+
+</center>
+
+  <form id="formid5" method="post" action="{{asset('/app_dev.php')}}">
+<label> Recherche d'une offre d'emploi</label>
+<br>
+<input type="text" name="recherche" id="text_recherche_id" minlength="1" required>
+
+<input type="submit" value="Recherche" name="rechercherbtn" class="btn" >
+</form>
+
+<br>
+
+{% for ab in offres %}
+<form id="form{{ ab.id }}" method="POST" action="{{asset('/app_dev.php/offre')}}" name="forms{{ ab.id }}">
+
+<a  href="#" onclick="document.forms['form{{ ab.id }}'].submit(); return false;" name="submit1">  {{ ab.offreTitre }}</a><br>
+
+<input type="text" name="idoffre" value= "{{ ab.id }}" style="display:none;">
+<br>
+
+</form>
+
+{% endfor %}
+
+
+
+{% endblock%}

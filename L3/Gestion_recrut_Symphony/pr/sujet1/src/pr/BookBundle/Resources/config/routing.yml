@@ -1,0 +1,6 @@
+pr_book_homepage:
+    path:     /book
+    defaults: { _controller: prBookBundle:Default:index }
+pr_book_contact:
+    path:     /book/contact
+    defaults: { _controller: prBookBundle:Default:contact }

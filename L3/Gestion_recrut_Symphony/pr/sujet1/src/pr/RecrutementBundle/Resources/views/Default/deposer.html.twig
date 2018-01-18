@@ -1,0 +1,131 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Postuler</title>
+{% endblock%}
+
+{% block body %}
+
+<script language="javascript">
+
+  function test()
+{
+alert("test");
+}
+    
+function testfichier()
+{
+
+
+var fup = document.getElementById('fichier');
+var fileName = fup.value;
+var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+if(ext == "pdf" || ext == "PDF" || ext == "docx" || ext == "DOCX" || ext == "doc" || ext == "DOC")
+{
+return true;
+} 
+else
+{
+return false;
+}
+}
+
+
+
+function validerfichier()
+{
+if (testfichier())
+			
+					{
+					return true;
+					}
+
+					else { alert ("Extenstion du fihier non autorisée ! "); return false;}
+}
+ 
+</script>
+
+
+<body style="padding:20px;">
+{% for ab in offres %}
+<center>
+<h3>{{ ab.offreTitre }} </h3>
+</center>
+<form action="{{asset('/app_dev.php/offre/deposer/insertoffre')}}" method="post" name="formcc" enctype="multipart/form-data" onsubmit="return validerfichier();">
+						 <table style="width:600px">
+						<tr>
+					
+						<div class="form-group">
+	                    		<td><label for="contact-name">Nom</label></td>
+	                        	<td><input type="text" name="nom" placeholder="Votre nom.."  minlength="3" required ></td>
+	                        </div></tr><br><br><br><br>
+	                  <tr> <div class="form-group">
+	                    		<td><label> Prénom</label></td>
+	                        	<td><input type="text" name="prenom" placeholder="Votre Prénom.." minlength="3" required ></td>
+	                       <tr> </div></tr>
+							  <div class="form-group">
+	                    		<td><label> Date Naissance</label><br></td>
+	                        	<td><input type="date" name="datenaissance" style="width=105% ; height: 34px;" ></td>
+	                        </div></tr>
+							
+	                      <tr>  <div class="form-group">
+	                        	<td><label for="contact-subject">Diplôme</label></td>
+	                        	<td><input type="text" name="diplome" placeholder="Votre diplôme.." class="contact-subject" minlength="3" required></td>
+	                        </div></tr>
+							<tr><div class="form-group">
+	                        	<td><label for="contact-subject">Université</label></td>
+	                        	<td><input type="text" name="universite" placeholder="Votre Université" class="contact-subject" minlength="3" required></td>
+	                        </div></tr>
+							<tr><div class="form-group">
+	                        	<td><label for="contact-subject">Année d'obtention du diplôme</label><br></td>
+	                        	<td><input type="number" name="anneediplome" min="1000" max="9999" placeholder="Année d'obtention du diplôme.." style="width=105% ; height: 34px;" minlength="4" required></td>
+	                        </div></tr>
+							
+							<tr><div class="form-group">
+	                        	<td><label for="contact-subject">Experience professionnelle en MOIS</label><br></td>
+	                        	<td><input type="number" placeholder="Votre experience.." name="experience"  min="0"  style="width=105% ; height: 34px;" minlength="3" required></td>
+	                        </div></tr>
+							
+	                       <tr> <div class="form-group">
+	                        	<td><label>Lettre de motivation</label></td>
+	                        	<td><textarea name="lettre" placeholder="Votre lettre de motivation.." class="contact-message" minlength="3" required></textarea></td>
+	                        </div></tr>
+							
+							 <tr> <td><label>Uploder votre CV + Photo<br> "Nom Prénom.(PDF, DOCX)" : max 5 MO</label></td>
+							<td><input type="file" name="fichier" id="fichier" /></td>
+							</tr>
+							</table>
+							<br/><br/><br/>
+						<div class="portfolio-box-containercd">
+			                	
+			                	<div class="portfolio-box-text">
+
+						
+						</div>
+						</div>
+						<br><br>
+						<input type="text" name="idoffre2" value="{{ ab.id }}"  style="display:none;"/>
+						 <button type="submit" class="btn" name="btn_ajouter">Postuler</button>
+						 </form>
+						 {% endfor %}
+						      </body>
+
+						      {% endblock%}
+
+						      {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+        
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}
+
+
+						  

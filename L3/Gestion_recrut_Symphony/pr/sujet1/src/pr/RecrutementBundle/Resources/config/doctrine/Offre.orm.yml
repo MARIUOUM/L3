@@ -1,0 +1,45 @@
+pr\RecrutementBundle\Entity\Offre:
+    type: entity
+    table: null
+    repositoryClass: pr\RecrutementBundle\Repository\OffreRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        offreTitre:
+            type: string
+            length: 255
+            column: offre_titre
+        offreDescription:
+            type: text
+            column: offre_description
+        offreExigence:
+            type: text
+            column: offre_exigence
+        offreSecteur:
+            type: string
+            length: 255
+            column: offre_secteur
+        offreLieu:
+            type: string
+            length: 255
+            column: offre_lieu
+        offreDateouverture:
+            type: datetime
+            column: offre_dateouverture
+        offreDatefermeture:
+            type: datetime
+            column: offre_datefermeture
+        offreGestionnaireid:
+            type: integer
+            column: offre_gestionnaireid
+        offreDescriptionid:
+            type: integer
+            column: offre_descriptionid
+        offreExigenceid:
+            type: integer
+            column: offre_exigenceid
+    lifecycleCallbacks: {  }

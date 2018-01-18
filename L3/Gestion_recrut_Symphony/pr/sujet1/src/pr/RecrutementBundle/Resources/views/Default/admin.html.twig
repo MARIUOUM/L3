@@ -1,0 +1,105 @@
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Administrateur</title>
+{% endblock%}
+
+
+{% block body %}
+
+<script>
+function myFunction() {
+    var txt;
+    var r = confirm("Voulez vous effacer cette offre ?");
+    if (r == true) {
+       return true;
+    } else {
+       return false;
+    }
+
+}
+</script>
+
+<body style="padding:10px;">
+<center>
+<h3> Espace Administrateur </h3>
+
+</center>
+
+  <form id="formid" method="post" action="{{asset('/app_dev.php/admin')}}">
+<label> Recherche d'une offre d'emploi</label>
+<br>
+<input type="text" name="offretitre" class="form-control"  id="text_recherche_id" minlength="1" required style="width:15%">
+<br>
+<input type="submit" value="Rechercher" class="btn" name="rechercherbtn">
+</form><br>
+<br><br>
+
+{% for ab in offres %}
+<table class="table table-striped">
+<tr>
+<td  id="idtd">
+<form id="form{{ ab.id }}" method="POST" action="{{asset('/app_dev.php/offre')}}" name="forms">
+
+<a  href="#" onclick="document.forms['form{{ ab.id }}'].submit(); return false;" name="submit1">  {{ ab.offreTitre }}</a>
+<input type="text" name="idoffre" value= "{{ ab.id }}" style="display:none;">
+</form>
+</td>
+
+<td id="idtd">
+
+<form id="formmm{{ ab.id }}" method="POST" action="{{asset('/app_dev.php/admin/modifieroffre')}}" name="forms">
+<input type="text" name="offreid" value= "{{ ab.id }}" style="display:none;">
+<input type="text" name="offregestionnaireid" value= "{{ ab.offreGestionnaireid }}" style="display:none;">
+<input type="submit" value="Modifier" name ="modifier" class="btn btn-success">
+
+
+
+</form>
+</td>
+
+<td id="idtd">
+
+<form id="formm{{ ab.id }}" method="POST" action="{{asset('/app_dev.php/admin')}}" name="forms" onsubmit="return myFunction();">
+<input type="text" name="offreTitre" value= "{{ ab.offreTitre }}" style="display:none;">
+<input type="text" name="offreid" value= "{{ ab.id }}" style="display:none;">
+<input type="submit" value="Supprimer" name="supprimer" class="btn sample btn-danger"  >
+
+
+</td>
+
+
+</tr>
+</table>
+</form>
+
+{% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="border-bottom: #F2F2F2 solid; padding:10px;border-bottom-height: 15px;width:auto;">
+ <a href="{{asset('/app_dev.php/admin/ajoutoffre')}}">
+<input type="button"   name="ajoutoffre" value="Ajouter une offre" class="btn ">
+</a>
+</div>
+</body>
+{% endblock%}
+
+
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}

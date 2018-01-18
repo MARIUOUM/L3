@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: sujet1
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 597b3eec1832f9b1602f48e21ab0ea4acae91213
+    upload_dir: %kernel.root_dir%/../web/uploads
+    idoffrepublic: 1
+
+    

@@ -1,0 +1,49 @@
+
+
+{% extends "prRecrutementBundle:Default:template.html.twig" %}
+{% block title %}
+<title> Gestionnaire</title>
+{% endblock%}
+
+
+{% block body %}
+
+<body style="padding:10px;">
+<center>
+<h3> Gestionnaire de recrutement </h3>
+
+</center>
+
+{% for ab in offres %}
+<form id="form{{ ab.id }}" method="POST" action="{{asset('/app_dev.php/gestionnaire/gerercandidature')}}" name="forms">
+
+<a  href="#" onclick="document.forms['form{{ ab.id }}'].submit(); return false;" name="submitg" id="aa">  {{ ab.offreTitre }}</a>
+<br>
+<input type="text" name="idoffre" value= "{{ ab.id }}" style="display:none;"> 
+
+<br>
+<input type="submit" name="submit1" value="Gérer" class="btn sample btn-xs btn-sample"/>
+</form>
+<br>
+
+{% endfor %}
+
+{% endblock %}
+
+
+  {% block userstat %}
+
+{% if users is empty %}
+     <li><a href="{{asset('/app_dev.php/register')}}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
+        <li><a href="{{asset('/app_dev.php/login')}}"><span class="glyphicon glyphicon-log-in"></span> Se Connecter</a></li>
+        
+{% else %}
+
+
+      {% for user in users %}
+        <li><a href="#">{{ user.username }}</a></li>
+        <li><a href="{{asset('/app_dev.php/logout')}}"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+      {% endfor %}
+      {% endif %}
+  {% endblock%}
+

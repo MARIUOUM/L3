@@ -1,0 +1,4 @@
+le noms des rues 
+relations(les differents types des batiments) espaces verts-batiments
+largeurs des rues
+

@@ -1,0 +1,13 @@
+RENDU OPENSTREETMAP
+===================
+
+1 . Compilation :
+----------------- 
+
+make 
+
+2 . Exécution :
+---------------
+ - ./openMap fichiers_test/[nom du fichier de test]
+ - ./openMap fichiers_test/[nom du fichier de test] -export : si on veut aussi exporter le rendu 
+ 	sous forme d'image BMP, qui elle, sera stockée dans le dossier "fichiers_test".

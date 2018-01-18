@@ -1,0 +1,26 @@
+#ifndef RENDER_ROADS_THICK_H
+#define RENDER_ROADS_THICK_H
+
+/* Largeur d'un way si aucune information sur la façon de déssiner le chemin n'est spécifiée */
+#define DEFAULT_WIDTH_WAY 4
+
+#define MOTOR_WAY_WIDTH 7
+#define MOTOR_WAY_LINK_WIDTH 3
+#define TRUNK_WAY_WIDTH 7
+#define TRUNK_WAY_LINK_WIDTH 3
+#define PRIMARY_WAY_WIDTH 13
+#define PRIMARY_WAY_LINK_WIDTH 4
+#define SECONDARY_WAY_WIDTH 13
+#define TERTIARY_WAY_WIDTH 12
+#define UNCLASSIFIED_WAY_WIDTH 4
+#define RESIDENTIAL_WAY_WIDTH 4
+#define SERVICE_WAY_WIDTH 4
+#define PEDESTRIAN_WAY_WIDTH 10
+#define FOOT_WAY_WIDTH 2
+#define CYCLE_WAY_WIDTH 2
+#define STEP_WAY_WIDTH 2
+#define TRACK_WAY_WIDTH 4
+#define LIVING_STREET_WIDTH 6
+#define NATURAL_TREE_NODE_WIDTH_WAY 7
+
+#endif

@@ -1,0 +1,6 @@
+- To re-constrcut jetty project with Eclipse, follow the instruction here:
+  https://neelzone.wordpress.com/2007/06/18/jetty-and-eclipse-integration/
+  
+
+- To configure maven for jetty on eclipse:
+  http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html#jetty-run-goal

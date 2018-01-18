@@ -1,0 +1,6 @@
+class TaskType{
+	private Date periodicity;
+	private String ataCategory;
+	private Boolean hangarNeed;
+
+}
